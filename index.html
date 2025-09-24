@@ -125,16 +125,18 @@
             left: 50%;
             transform: translateX(-50%);
         }
-        #bunia .hair {
-            width: 25px;
-            height: 50px;
+        /* Kucyk */
+        #bunia .ponytail {
+            width: 35px;
+            height: 55px;
             background: #8b4513;
-            border-radius: 50% 50% 0 0;
+            border-radius: 50% 50% 50% 50%;
             position: absolute;
-            top: 0;
+            top: 15px;
+            right: -10px;
+            transform: rotate(20deg);
+            z-index: -1;
         }
-        #bunia .left-hair { left: 15px; transform: rotate(-15deg); }
-        #bunia .right-hair { right: 15px; transform: rotate(15deg); }
         #bunia .body {
             width: 80px;
             height: 80px;
@@ -209,8 +211,7 @@
                     <div class="eye left-eye"></div>
                     <div class="eye right-eye"></div>
                     <div class="mouth"></div>
-                    <div class="hair left-hair"></div>
-                    <div class="hair right-hair"></div>
+                    <div class="ponytail"></div> <!-- Kucyk -->
                 </div>
                 <div class="body"></div>
             </div>
@@ -245,7 +246,6 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js"></script>
     <script>
-        // Dane do zabawy
         const alphabetData = [
             { letter: 'A', word: 'Ananas', image: 'https://placehold.co/200x200/FFC3E1/FF6384?text=Ananas', color: '#ff6384' },
             { letter: 'B', word: 'Balon', image: 'https://placehold.co/200x200/60A5FA/FFFFFF?text=Balon', color: '#60a5fa' },
@@ -259,7 +259,6 @@
 
         let currentLetterIndex = 0;
 
-        // Elementy DOM
         const welcomeScreen = document.getElementById('welcome-screen');
         const menuScreen = document.getElementById('menu-screen');
         const poznajLiterkiScreen = document.getElementById('poznaj-literki-screen');
@@ -274,13 +273,11 @@
         const prevLetterBtn = document.getElementById('prev-letter-btn');
         const nextLetterBtn = document.getElementById('next-letter-btn');
 
-        // Syntezator dźwięku
         const synth = new Tone.Synth().toDestination();
         function playSound(note, duration) {
             synth.triggerAttackRelease(note, duration);
         }
 
-        // Funkcje do nawigacji
         function showScreen(screenToShow) {
             [welcomeScreen, menuScreen, poznajLiterkiScreen].forEach(screen => {
                 screen.classList.add('hidden');
@@ -288,7 +285,6 @@
             screenToShow.classList.remove('hidden');
         }
 
-        // Logika trybu "Poznaj Literki"
         function updateLetter() {
             const currentLetter = alphabetData[currentLetterIndex];
             letterDisplay.innerText = currentLetter.letter;
@@ -297,14 +293,12 @@
             letterImage.alt = currentLetter.word;
             letterWord.innerText = `jak ${currentLetter.word}`;
             
-            // Prosta animacja przy zmianie
             letterDisplay.style.transform = 'scale(0.8)';
             setTimeout(() => {
                 letterDisplay.style.transform = 'scale(1)';
             }, 100);
         }
         
-        // Event Listeners
         startBtn.addEventListener('click', () => {
             playSound('C4', '8n');
             showScreen(menuScreen);
@@ -333,12 +327,9 @@
             updateLetter();
         });
         
-        // Dodajemy dźwięk po kliknięciu na literę
         letterDisplay.addEventListener('click', () => {
             playSound('G4', '8n');
-            // W przyszłości tutaj można dodać odtwarzanie głosu Buni
         });
-
     </script>
 </body>
 </html>
