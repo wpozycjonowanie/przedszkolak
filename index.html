@@ -87,72 +87,6 @@
         .bg-yellow-400 { background-color: #facc15; }
         .bg-purple-400 { background-color: #c084fc; }
         
-        #bunia {
-            width: 150px;
-            height: 200px;
-            position: relative;
-            animation: bounce 2s infinite ease-in-out;
-        }
-        #bunia .head {
-            width: 100px;
-            height: 100px;
-            background: #ffdab9;
-            border-radius: 50%;
-            position: absolute;
-            left: 50%;
-            top: 20px;
-            transform: translateX(-50%);
-            border: 3px solid #a0522d;
-        }
-        #bunia .eye {
-            width: 12px;
-            height: 18px;
-            background: #333;
-            border-radius: 50%;
-            position: absolute;
-            top: 40px;
-        }
-        #bunia .left-eye { left: 25px; }
-        #bunia .right-eye { right: 25px; }
-        #bunia .mouth {
-            width: 20px;
-            height: 10px;
-            border: 3px solid #333;
-            border-top: none;
-            border-radius: 0 0 20px 20px;
-            position: absolute;
-            top: 65px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        /* Kucyk */
-        #bunia .ponytail {
-            width: 35px;
-            height: 55px;
-            background: #8b4513;
-            border-radius: 50% 50% 50% 50%;
-            position: absolute;
-            top: 15px;
-            right: -10px;
-            transform: rotate(20deg);
-            z-index: -1;
-        }
-        #bunia .body {
-            width: 80px;
-            height: 80px;
-            background: #ff69b4;
-            position: absolute;
-            top: 115px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 20px 20px 0 0;
-        }
-        
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-        }
-        
         .letter-display {
             font-size: 10rem;
             line-height: 1;
@@ -207,13 +141,8 @@
             <h1 class="title-font text-6xl text-pink-500" style="color: #ff6384;">Bunia Show</h1>
             <p class="text-xl text-gray-500 mt-2 mb-6">Uczymy się literek!</p>
             <div id="bunia">
-                <div class="head">
-                    <div class="eye left-eye"></div>
-                    <div class="eye right-eye"></div>
-                    <div class="mouth"></div>
-                    <div class="ponytail"></div> <!-- Kucyk -->
-                </div>
-                <div class="body"></div>
+                <!-- Bunia z obrazka -->
+                <img src="bunia.png" alt="Bunia" class="w-40 mx-auto rounded-xl shadow-lg">
             </div>
             <p class="text-xl text-pink-600 font-bold mt-8">Cześć! Nauczymy się razem literek!</p>
             <button id="start-btn" class="btn-start title-font mt-8">Start</button>
@@ -241,7 +170,6 @@
                 <button id="next-letter-btn" class="nav-arrow">›</button>
             </div>
         </div>
-
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js"></script>
